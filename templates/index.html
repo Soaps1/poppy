@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Counter and Sum Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+        }
+        input[type="text"], input[type="number"] {
+            padding: 10px;
+            width: 300px;
+            margin-bottom: 20px;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Character Counter and Sum Calculator</h1>
+
+        <!-- Character Counter Form -->
+        <form action="/count" method="post">
+            <input type="text" name="sentence" placeholder="Enter your sentence here">
+            <br>
+            <input type="submit" value="Count Characters">
+        </form>
+        <div class="result">
+            {% if char_result is not none %}
+                <p>Number of characters: {{ char_result }}</p>
+            {% endif %}
+        </div>
+
+        <!-- Sum Calculator Form -->
+        <form action="/sum" method="post">
+            <input type="number" name="num1" placeholder="Enter first number">
+            <br>
+            <input type="number" name="num2" placeholder="Enter second number">
+            <br>
+            <input type="submit" value="Calculate Sum">
+        </form>
+        <div class="result">
+            {% if sum_result is not none %}
+                <p>Sum of numbers: {{ sum_result }}</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
